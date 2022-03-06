@@ -7,16 +7,11 @@
 
 import Foundation
 
-enum Satisfaction {
-    case satiated, ok, hungry
-}
-
 struct Pet: Codable {
     var name: String
     var birthday = Date()
     var lastMeal: Date
     var lastDrink: Date
-    var lastUpdated: Date
     
     var happinessLevel: String {
         hunger == "Hungry" || thirst == "Thirsty" ? "Unhappy" : "Happy"

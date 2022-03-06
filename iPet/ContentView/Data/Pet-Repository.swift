@@ -20,10 +20,10 @@ class PetRepository {
                 return
             }
         }
-        self.pet = Pet(name: "Tommy", lastMeal: Date(), lastDrink: Date(), lastUpdated: Date())
+        self.pet = Pet(name: "Tommy", lastMeal: Date(), lastDrink: Date())
     }
     
-    func loadData() -> Pet{
+    func loadData() -> Pet {
         return self.pet
     }
     
