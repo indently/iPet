@@ -13,12 +13,18 @@ enum Satisfaction {
 
 struct Pet: Codable {
     var name: String
+    var birthday = Date()
     var lastMeal: Date
     var lastDrink: Date
     var lastUpdated: Date
     
     var happinessLevel: String {
         hunger == "Hungry" || thirst == "Thirsty" ? "Unhappy" : "Happy"
+    }
+    
+    var age: Int {
+        let timeSince = calcTimeSince(date: birthday)
+        return timeSince
     }
     
     var hunger: String {

@@ -14,7 +14,6 @@ extension View {
             self
             Spacer()
         }
-        
     }
 }
 
@@ -23,7 +22,7 @@ struct ContentView: View {
     
     var body: some View {
         Form {
-            Section("Pet name") {
+            Section("Pet") {
                 TextField("Name your pet!", text: $vm.pet.name)
                 Image(vm.pet.happinessLevel == "Happy" ? "happy-pet" : "sad-pet")
                     .resizable()
@@ -31,16 +30,16 @@ struct ContentView: View {
                     .frame(width: 200, height: 200)
                     .padding()
                     .centerH()
+                Text("Age: **\(vm.pet.age)** seconds")
+                    
+                Text("Status: **\(vm.pet.happinessLevel)**")
+                Text("Hunger: **\(vm.pet.hunger)**")
+                Text("Thirst: **\(vm.pet.thirst)**")
                     
             }
             Section("Actions") {
                 Button("Feed", action: vm.feed)
                 Button("Give water", action: vm.giveWater)
-            }
-            Section("Status") {
-                Text("Status: **\(vm.pet.happinessLevel)**")
-                Text("Hunger: **\(vm.pet.hunger)**")
-                Text("Thirst: **\(vm.pet.thirst)**")
             }
         }
         .onReceive(vm.timer) {_ in
