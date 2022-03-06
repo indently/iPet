@@ -34,8 +34,8 @@ struct Pet: Codable {
         }
         
         return string
-        
     }
+    
     var thirst: String {
         let timeSince = calcTimeSince(date: lastDrink)
         var string = ""

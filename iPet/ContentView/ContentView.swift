@@ -19,6 +19,7 @@ extension View {
 
 struct ContentView: View {
     @StateObject private var vm = ViewModel()
+    private let timer = Timer.publish(every: 15, on: .main, in: .common).autoconnect()
     
     var body: some View {
         Form {
@@ -28,10 +29,8 @@ struct ContentView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 200, height: 200)
-                    .padding()
                     .centerH()
                 Text("Age: **\(vm.pet.age)** seconds")
-                    
                 Text("Status: **\(vm.pet.happinessLevel)**")
                 Text("Hunger: **\(vm.pet.hunger)**")
                 Text("Thirst: **\(vm.pet.thirst)**")
@@ -42,7 +41,7 @@ struct ContentView: View {
                 Button("Give water", action: vm.giveWater)
             }
         }
-        .onReceive(vm.timer) {_ in
+        .onReceive(timer) {_ in
             vm.saveData()
         }
     }
