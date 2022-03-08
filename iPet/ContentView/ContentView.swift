@@ -7,16 +7,6 @@
 
 import SwiftUI
 
-extension View {
-    func centerH() -> some View {
-        HStack {
-            Spacer()
-            self
-            Spacer()
-        }
-    }
-}
-
 struct ContentView: View {
     @StateObject private var vm = ViewModel()
     private let timer = Timer.publish(every: 15, on: .main, in: .common).autoconnect()

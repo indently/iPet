@@ -12,3 +12,13 @@ func calcTimeSince(date: Date) -> Int {
     let seconds = Int(-date.timeIntervalSinceNow)
     return seconds
 }
+
+extension View {
+    func centerH() -> some View {
+        HStack {
+            Spacer()
+            self
+            Spacer()
+        }
+    }
+}

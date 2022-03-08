@@ -16,7 +16,7 @@ class PetRepository {
         if let data = UserDefaults.standard.data(forKey: PET_KEY) {
             if let decoded = try? JSONDecoder().decode(Pet.self, from: data) {
                 self.pet = decoded
-                print("Note data successfully retrieved!")
+                print("Pet data successfully retrieved!")
                 return
             }
         }
